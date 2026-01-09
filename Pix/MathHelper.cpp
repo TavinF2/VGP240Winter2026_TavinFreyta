@@ -1,5 +1,5 @@
 #include "MathHelper.h"
-#include <math.h>
+#include <cmath>
 
 
 
