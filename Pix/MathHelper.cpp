@@ -5,7 +5,7 @@
 
 bool MathHelper::CheckEqual(float a, float b)
 {
-	return abs(a - b), 0.01f;
+	return abs(a - b) < 0.01f;
 }
 
 float MathHelper::MagnitudeSquared(const Vector2& v)
