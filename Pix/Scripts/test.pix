@@ -1,10 +1,13 @@
-SetResolution(10, 10, 50)
+SetResolution(10, 10, 50, true)
 
-SetColor(1.0, 0.0, 0.0)
+SetColor(1.0, 0.5, 0.2)
 DrawPixel(2, 2)
 
-SetColor(0.0, 1.0, 0.0)
+SetColor(0.3, 1.0, 0.2)
 DrawPixel(3, 3)
 
-SetColor(0.0, 0.0, 1.0)
+SetColor(0.7, 1.0, 1.0)
 DrawPixel(4, 4)
+
+
+
