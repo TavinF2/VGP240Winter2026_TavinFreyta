@@ -1,0 +1,27 @@
+SetResolution(50, 50, 10, true)
+
+BeginDraw(Triangle)
+SetFillMode(Wireframe)
+
+Vertex(2, 2, 1, 1, 0)
+Vertex(50, 2, 0, 0, 1)
+Vertex(25, 20, 0, 0, 1)
+
+EndDraw()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
