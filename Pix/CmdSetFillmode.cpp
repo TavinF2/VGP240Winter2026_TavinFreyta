@@ -1,29 +1,29 @@
 #include "CmdSetFillMode.h"
-
 #include "Rasterizer.h"
-#include "VariableCache.h"
 
 bool CmdSetFillMode::Execute(const std::vector<std::string>& params)
 {
-	if (params.size() < 1)
+	if (params.size() != 1)
 	{
 		return false;
 	}
-	VariableCache* vc = VariableCache::Get();
-	std::string fillModeStr = params[0];
-	FillMode fillMode = FillMode::Solid;
-	if (fillModeStr == "Solid")
+
+	std::string fillMode = params[0];
+
+	std::transform(fillMode.begin(), fillMode.end(), fillMode.begin(), [](unsigned char c) { return std::tolower(c); });
+
+	if (fillMode == "wireframe")
 	{
-		fillMode = FillMode::Solid;
+		Rasterizer::Get()->SetFillMode(FillMode::Wireframe);
 	}
-	else if (fillModeStr == "Wireframe")
+	else if (fillMode == "solid")
 	{
-		fillMode = FillMode::Wireframe;
+		Rasterizer::Get()->SetFillMode(FillMode::Solid);
 	}
 	else
 	{
 		return false;
 	}
-	Rasterizer::Get()->SetFillMode(fillMode);
+
 	return true;
 }

@@ -1,8 +1,8 @@
 #include "CmdEndDraw.h"
+#include "PrimativesManager.h"
 
-#include "PrimitivesManager.h"
-
-bool CmdEndDraw::Execute(const std::vector<std::string>& params)
+bool CmdEndDraw::Execute(const std::vector <std::string>& params)
 {
-	return PrimitivesManager::Get()->EndDraw();
+	//Send vertices to rasterizer
+	return PrimativesManager::Get()->EndDraw();
 }

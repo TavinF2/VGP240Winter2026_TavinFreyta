@@ -1,18 +1,20 @@
 #include "CmdVertex.h"
-#include "PrimitivesManager.h"
-#include "VariableCache.h"	
+#include "PrimativesManager.h"
+#include "VariableCache.h"
 
 bool CmdVertex::Execute(const std::vector<std::string>& params)
 {
 	VariableCache* vc = VariableCache::Get();
+
 	float x, y, z = 0.0f;
 	float r, g, b = 1.0f;
+
 	if (params.size() == 2)
 	{
 		x = vc->GetFloat(params[0]);
 		y = vc->GetFloat(params[1]);
 	}
-	else if(params.size() == 3)
+	else if (params.size() == 3)
 	{
 		x = vc->GetFloat(params[0]);
 		y = vc->GetFloat(params[1]);
@@ -41,10 +43,10 @@ bool CmdVertex::Execute(const std::vector<std::string>& params)
 	}
 
 	Vertex v;
-	v.pos = { x,y,z };
-	v.color = { r,g,b,1.0f };
-	PrimitivesManager::Get()->AddVertex(v);
+	v.pos = {x, y, z};
+	v.color = {r, g, b, 1.0f};
+
+	PrimativesManager::Get()->AddVertex(v);
+
 	return true;
-
-
 }

@@ -1,0 +1,31 @@
+#pragma once
+
+#include <XEngine.h>
+
+enum class AddressMode
+{
+	Border,	// set color outside of 0-1
+	Clamp,	// use last color from 0-1
+	Wrap,	// repeat after going beyond 0-1
+	Mirror	// mirror after going beyond 0-1
+};
+
+class Texture
+{
+public:
+	void Load(const std::string& fileName);
+	const std::string& GetFileName() const;
+
+	X::Color GetPixel(float u, float v, AddressMode addressMode) const;
+
+	int GetWidth() const;
+	int GetHeight() const;
+
+private:
+	X::Color GetPixel(int u, int v) const;
+
+	std::string mFileName;
+	std::unique_ptr<X::Color[]> mPixels;
+	int mWidth = 0;
+	int mHeight = 0;
+};
